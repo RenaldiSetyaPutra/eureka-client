@@ -1,0 +1,166 @@
+<constraint-mappings
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://jboss.org/xml/ns/javax/validation/mapping validation-mapping-1.0.xsd"      
+    xmlns="http://jboss.org/xml/ns/javax/validation/mapping">
+    <default-package>com.example.eurekaclient.Pojo.Request</default-package>
+
+    <bean class="InquirySNAPRequest" ignore-annotations="false"> 
+          <field name="partnerServiceId">
+               <constraint annotation="javax.validation.constraints.NotBlank">
+                    <message>Invalid Mandatory Field</message>
+               </constraint>
+
+               <constraint annotation="javax.validation.constraints.Size">
+                    <message>Invalid Field Format</message>
+                    <element name="max">8</element>
+               </constraint>
+          </field>
+
+          <field name="customerNo">
+               <constraint annotation="javax.validation.constraints.NotBlank">
+                    <message>Invalid Mandatory Field</message>
+               </constraint>
+
+               <constraint annotation="javax.validation.constraints.Size">
+                    <message>Invalid Field Format</message>
+                    <element name="max">20</element>
+               </constraint>
+          </field>
+
+          <field name="virtualAccountNo">
+               <constraint annotation="javax.validation.constraints.NotBlank">
+                    <message>Invalid Mandatory Field</message>
+               </constraint>
+
+               <constraint annotation="javax.validation.constraints.Size">
+                    <message>Invalid Field Format</message>
+                    <element name="max">28</element>
+               </constraint>
+          </field>
+
+          <field name="inquiryRequestId">
+               <constraint annotation="javax.validation.constraints.NotBlank">
+                    <message>Invalid Mandatory Field</message>
+               </constraint>
+
+               <constraint annotation="javax.validation.constraints.Size">
+                    <message>Invalid Field Format</message>
+                    <element name="max">128</element>
+               </constraint>
+          </field>
+
+          <field name="additionalInfo">
+               <valid/>
+               <constraint annotation="javax.validation.constraints.NotNull">
+                    <message>Invalid Mandatory Field</message>
+               </constraint>
+          </field>
+     </bean>
+
+     <bean class="PaymentSNAPRequest" ignore-annotations="false"> 
+          <field name="partnerServiceId">
+               <constraint annotation="javax.validation.constraints.NotBlank">
+                    <message>Invalid Mandatory Field</message>
+               </constraint>
+
+               <constraint annotation="javax.validation.constraints.Size">
+                    <message>Invalid Field Format</message>
+                    <element name="max">8</element>
+               </constraint>
+          </field>
+
+          <field name="customerNo">
+               <constraint annotation="javax.validation.constraints.NotBlank">
+                    <message>Invalid Mandatory Field</message>
+               </constraint>
+
+               <constraint annotation="javax.validation.constraints.Size">
+                    <message>Invalid Field Format</message>
+                    <element name="max">20</element>
+               </constraint>
+          </field>
+
+          <field name="virtualAccountNo">
+               <constraint annotation="javax.validation.constraints.NotBlank">
+                    <message>Invalid Mandatory Field</message>
+               </constraint>
+
+               <constraint annotation="javax.validation.constraints.Size">
+                    <message>Invalid Field Format</message>
+                    <element name="max">28</element>
+               </constraint>
+          </field>
+
+          <field name="trxId">
+               <constraint annotation="javax.validation.constraints.NotBlank">
+                    <message>Invalid Mandatory Field</message>
+               </constraint>
+
+               <constraint annotation="javax.validation.constraints.Size">
+                    <message>Invalid Field Format</message>
+                    <element name="max">128</element>
+               </constraint>
+          </field>
+
+          <field name="paymentRequestId">
+               <constraint annotation="javax.validation.constraints.NotBlank">
+                    <message>Invalid Mandatory Field</message>
+               </constraint>
+
+               <constraint annotation="javax.validation.constraints.Size">
+                    <message>Invalid Field Format</message>
+                    <element name="max">128</element>
+               </constraint>
+          </field>
+
+          <field name="totalAmount">
+               <valid/>
+               <constraint annotation="javax.validation.constraints.NotNull">
+                    <message>Invalid Mandatory Field</message>
+               </constraint>
+          </field>
+
+          <field name="additionalInfo">
+               <valid/>
+               <constraint annotation="javax.validation.constraints.NotNull">
+                    <message>Invalid Mandatory Field</message>
+               </constraint>
+          </field>
+     </bean>
+
+     <bean class="AdditionalInfo" ignore-annotations="false">
+          <field name="bankCd">
+               <constraint annotation="javax.validation.constraints.NotBlank">
+                    <message>Invalid Mandatory Field</message>
+               </constraint>
+
+               <constraint annotation="javax.validation.constraints.Size">
+                    <message>Invalid Field Format</message>
+                    <element name="min">4</element>
+                    <element name="max">4</element>
+               </constraint>
+        </field>
+     </bean>
+
+     <bean class="Amount" ignore-annotations="false">
+          <field name="value">
+               <constraint annotation="javax.validation.constraints.NotBlank">
+                    <message>Invalid Mandatory Field</message>
+               </constraint>
+
+               <!-- <constraint annotation="com.example.eurekaclient.Validator.Constraint.LengthStringDoubleValidator">
+                    <message>Invalid Field Format</message>
+               </constraint> -->
+        </field>
+
+        <field name="currency">
+               <constraint annotation="javax.validation.constraints.NotBlank">
+                    <message>Invalid Mandatory Field</message>
+               </constraint>
+
+               <!-- <constraint annotation="com.example.eurekaclient.Validator.Constraint.CurrencyLengthValidator">
+                    <message>Invalid Field Format</message>
+               </constraint> -->
+        </field>
+     </bean>
+</constraint-mappings>
