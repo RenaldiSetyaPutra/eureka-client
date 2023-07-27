@@ -11,6 +11,7 @@ import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.BindingResult;
@@ -70,13 +71,13 @@ public class NicepayComponent {
                 }
 
                 Configuration<?> config = Validation.byDefaultProvider().configure();
-                FileInputStream in = new FileInputStream(new File("C:/Users/Dev Vendor 5/Documents/Eureka/eureka-client/src/main/resources/vault/NicepaySNAPValidation.xml"));
-                // FileInputStream in = new FileInputStream(new File("D:/Documents/Data Kantor/Latihan/Eureka/eureka-client/src/main/resources/vault/NicepaySNAPValidation.xml"));
+                File resource = new ClassPathResource("vault/NicepaySNAPValidation.xml").getFile();
+                FileInputStream in = new FileInputStream(resource);
                 config.addMapping(in);
                 ValidatorFactory factory = config.buildValidatorFactory();
                 Validator validator = factory.getValidator();
                 Set<ConstraintViolation<Object>> constraintViolations = validator.validate(ctx.getRequest());
-                constraintViolations = validator.validate(ctx.getRequest(), InquirySNAPInterface.class);
+                // constraintViolations = validator.validate(ctx.getRequest(), InquirySNAPInterface.class);
 
                 for (ConstraintViolation<Object> constraintViolation : constraintViolations) {
                     if(!constraintViolation.getMessage().isEmpty()){

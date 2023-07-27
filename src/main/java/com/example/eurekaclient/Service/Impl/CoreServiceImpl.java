@@ -43,7 +43,7 @@ public class CoreServiceImpl implements CoreService{
             return helper.initPayment(request, codeService)
             // .flatMap(nicepayComponent::checkHeader)
             .flatMap(nicepayComponent::valid)
-            // .flatMap(ctx -> nicepayComponent.fieldPaymentAdditionalToMandatory(ctx,  "bankCd", "tXIdVA"))
+            .flatMap(ctx -> nicepayComponent.fieldPaymentAdditionalToMandatory(ctx,  "bankCd", "tXIdVA"))
             .flatMap(nicepayComponent::setResponseInquery)
             .onFailure(e -> Generify.printWhenError(e, serviceCode))
             .fold(e -> Generify.failResponse(e, serviceCode),
