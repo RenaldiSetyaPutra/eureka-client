@@ -25,7 +25,8 @@ public class ValidatorTest {
 			InquirySNAPResponse inquirySNAPResponse = new InquirySNAPResponse();
 
             Configuration<?> config = Validation.byDefaultProvider().configure();
-			FileInputStream in = new FileInputStream(new File("C:/Users/Dev Vendor 5/Documents/Eureka/eureka-client/src/main/java/com/example/eurekaclient/Validator/XML/inquirySNAPValidator.xml"));
+			// FileInputStream in = new FileInputStream(new File("C:/Users/Dev Vendor 5/Documents/Eureka/eureka-client/src/main/resources/VirtualAccountSNAPValidation.xml"));
+			FileInputStream in = new FileInputStream(new File("D:/Documents/Data Kantor/Latihan/Eureka/eureka-client/src/main/resources/VirtualAccountSNAPValidation.xml"));
 			config.addMapping(in);
             ValidatorFactory factory = config.buildValidatorFactory();
 			Validator validator = factory.getValidator();

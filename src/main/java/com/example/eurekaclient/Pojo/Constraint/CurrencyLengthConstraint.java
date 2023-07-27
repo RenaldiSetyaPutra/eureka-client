@@ -7,7 +7,7 @@ import com.example.eurekaclient.Validator.Constraint.CurrencyLengthValidator;
 
 import java.lang.annotation.*;
 
-@Target({ ElementType.METHOD, ElementType.FIELD })
+@Target({ ElementType.METHOD, ElementType.FIELD , ElementType.ANNOTATION_TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Constraint(validatedBy = CurrencyLengthValidator.class)

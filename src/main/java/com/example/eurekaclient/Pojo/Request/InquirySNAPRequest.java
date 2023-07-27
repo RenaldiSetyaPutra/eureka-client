@@ -13,6 +13,5 @@ public class InquirySNAPRequest {
     private String customerNo;
     private String virtualAccountNo;
     private String inquiryRequestId;
-    @NotNull
     private AdditionalInfo additionalInfo;
 }

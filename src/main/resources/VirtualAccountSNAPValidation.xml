@@ -147,10 +147,11 @@
                <constraint annotation="javax.validation.constraints.NotBlank">
                     <message>Invalid Mandatory Field</message>
                </constraint>
-
-               <!-- <constraint annotation="com.example.eurekaclient.Validator.Constraint.LengthStringDoubleValidator">
+               
+               <constraint annotation="com.example.eurekaclient.Pojo.Constraint.LengthStringDoubleConstraint">
                     <message>Invalid Field Format</message>
-               </constraint> -->
+                    <element name="digit">16</element>
+               </constraint>
         </field>
 
         <field name="currency">
@@ -158,9 +159,10 @@
                     <message>Invalid Mandatory Field</message>
                </constraint>
 
-               <!-- <constraint annotation="com.example.eurekaclient.Validator.Constraint.CurrencyLengthValidator">
+               <constraint annotation="com.example.eurekaclient.Pojo.Constraint.CurrencyLengthConstraint">
                     <message>Invalid Field Format</message>
-               </constraint> -->
+                    <element name="length">3</element>
+               </constraint>
         </field>
      </bean>
 </constraint-mappings>
