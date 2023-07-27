@@ -1,6 +1,6 @@
 package com.example.eurekaclient.Pojo.Request;
 
-import javax.validation.constraints.NotNull;
+import java.util.Map;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -13,5 +13,5 @@ public class InquirySNAPRequest {
     private String customerNo;
     private String virtualAccountNo;
     private String inquiryRequestId;
-    private AdditionalInfo additionalInfo;
+    private Map<String, Object> additionalInfo;
 }

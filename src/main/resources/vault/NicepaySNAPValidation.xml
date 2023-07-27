@@ -8,6 +8,7 @@
           <field name="partnerServiceId">
                <constraint annotation="javax.validation.constraints.NotBlank">
                     <message>Invalid Mandatory Field</message>
+                    <!-- <element name="groups">{InquirySNAPInterface.class}</element> -->
                </constraint>
 
                <constraint annotation="javax.validation.constraints.Size">
@@ -121,14 +122,14 @@
           </field>
 
           <field name="additionalInfo">
-               <valid/>
+               <!-- <valid/> -->
                <constraint annotation="javax.validation.constraints.NotNull">
                     <message>Invalid Mandatory Field</message>
                </constraint>
           </field>
      </bean>
 
-     <bean class="AdditionalInfo" ignore-annotations="false">
+     <!-- <bean class="AdditionalInfo" ignore-annotations="false">
           <field name="bankCd">
                <constraint annotation="javax.validation.constraints.NotBlank">
                     <message>Invalid Mandatory Field</message>
@@ -140,7 +141,7 @@
                     <element name="max">4</element>
                </constraint>
         </field>
-     </bean>
+     </bean> -->
 
      <bean class="Amount" ignore-annotations="false">
           <field name="value">

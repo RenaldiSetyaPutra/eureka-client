@@ -13,5 +13,5 @@ import lombok.NoArgsConstructor;
 @Builder
 public class ParentResponse {
     private HttpStatus httpStatus;
-    private InquirySNAPResponse inquirySNAPResponse;
+    private BaseResponse<?> baseResponse;
 }

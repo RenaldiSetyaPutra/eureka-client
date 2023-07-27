@@ -1,5 +1,7 @@
 package com.example.eurekaclient.Pojo.Request;
 
+import java.util.Map;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,5 +18,5 @@ public class PaymentSNAPRequest {
     private String trxId;
     private String paymentRequestId;
     private Amount totalAmount;
-    private AdditionalInfo additionalInfo;
+    private Map<String, Object> additionalInfo;
 }
