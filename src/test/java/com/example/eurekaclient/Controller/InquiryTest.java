@@ -84,7 +84,7 @@ public class InquiryTest {
         InquirySNAPRequest snapRequest = InquiryRequestTest.setRequestInquiryMandatoryAdditionalInfo();
         ParentResponse snapResponse = buildParentResponseNegative();
 
-        given(coreService.inquiry(snapRequest, "24")).willReturn(snapResponse);
+        given(coreService.inquiry(any(), anyString())).willReturn(snapResponse);
 
         String content = mapper.writeValueAsString(snapRequest);
         mockMvc.perform(
