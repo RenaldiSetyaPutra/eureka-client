@@ -92,10 +92,10 @@ public class InquiryTest {
                                 .post("/client/v1.0/transfer-va/inquiry")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(mapper.writeValueAsString(snapRequest)))
-                .andExpect(status().isBadRequest());
-//                .andDo(mvcResult ->
-//                                Assertions.assertThat(snapRequest.getAdditionalInfo().isEmpty()).isTrue()
-//                );
+                .andExpect(status().isBadRequest())
+                .andDo(mvcResult ->
+                                Assertions.assertThat(snapRequest.getAdditionalInfo().isEmpty()).isTrue()
+                );
     }
 
     static ParentResponse buildParentResponsePositive() {
