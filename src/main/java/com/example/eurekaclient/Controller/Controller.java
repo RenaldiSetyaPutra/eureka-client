@@ -1,9 +1,11 @@
 package com.example.eurekaclient.Controller;
 
+import com.example.eurekaclient.Pojo.Interface.InquirySNAPInterface;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,6 +18,8 @@ import com.example.eurekaclient.Pojo.Response.ParentResponse;
 import com.example.eurekaclient.Service.CoreService;
 
 import lombok.RequiredArgsConstructor;
+
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/client")
@@ -35,10 +39,13 @@ public class Controller {
     }
 
     @PostMapping("/v1.0/transfer-va/inquiry")
-    public ResponseEntity<?> inquiry(@RequestBody InquirySNAPRequest request){
+    public ResponseEntity<?> inquiry(
+            @Validated(InquirySNAPInterface.class)
+            @RequestBody InquirySNAPRequest request,
+            BindingResult bindingResult){
         this.serviceCode = "24";
         // ParentResponse result = validator.isValid(request, serviceCode);
-        ParentResponse result = coreService.inquiry(request, serviceCode);
+        ParentResponse result = coreService.inquiry(request, serviceCode, bindingResult);
 
         return new ResponseEntity<>(result.getBaseResponse(), result.getHttpStatus());
     }

@@ -18,9 +18,10 @@ public class Helper {
      */
     public Try<NicepayContext> initInquiry(
             InquirySNAPRequest request,
-            String codeService
+            String codeService,
+            BindingResult bindingResult
         ){
-        return Try.ofSupplier(() -> new NicepayContext(request, codeService));
+        return Try.ofSupplier(() -> new NicepayContext(request, codeService, bindingResult));
     }
 
     public Try<NicepayContext> initPayment(
