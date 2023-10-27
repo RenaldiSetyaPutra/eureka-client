@@ -9,6 +9,7 @@ import com.example.eurekaclient.Service.CoreService;
 import com.example.eurekaclient.Utils.Generify;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.BindingResult;
 
 @Service
 @RequiredArgsConstructor
@@ -18,10 +19,10 @@ public class CoreServiceImpl implements CoreService{
     private final NicepayComponent nicepayComponent;
 
     @Override
-    public ParentResponse inquiry(InquirySNAPRequest request, String codeService) {
+    public ParentResponse inquiry(InquirySNAPRequest request, String codeService, BindingResult bind) {
             this.serviceCode = codeService;
 
-            return helper.initInquiry(request, codeService)
+            return helper.initInquiry(request, codeService, bind)
             // .flatMap(nicepayComponent::checkHeader)
 //            .flatMap(nicepayComponent::valid)
             .flatMap(ctx -> nicepayComponent.fieldInquiryAdditionalToMandatory(ctx, "bankCd"))

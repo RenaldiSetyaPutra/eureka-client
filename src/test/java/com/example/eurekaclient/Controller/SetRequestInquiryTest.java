@@ -5,7 +5,7 @@ import com.example.eurekaclient.Pojo.Request.InquirySNAPRequest;
 import java.util.HashMap;
 import java.util.Map;
 
-public class InquiryRequestTest {
+public class SetRequestInquiryTest {
 
     static InquirySNAPRequest setRequestInquiryPositive(){
         InquirySNAPRequest request = new InquirySNAPRequest();

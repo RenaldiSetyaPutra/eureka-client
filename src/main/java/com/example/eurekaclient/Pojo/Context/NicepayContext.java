@@ -35,7 +35,8 @@ public class NicepayContext {
 
     public NicepayContext(
             InquirySNAPRequest inquirySNAPRequest,
-            String codeService
+            String codeService,
+            BindingResult bindingResult
     ) {
         this.inquirySNAPRequest = inquirySNAPRequest;
         this.codeService = codeService;
