@@ -55,7 +55,7 @@ public class NicepayComponent {
                         throw new ResponseErrorException(
                                 HttpStatus.TOO_MANY_REQUESTS.value() + ctx.getCodeService() + "00",
                                 HttpStatus.TOO_MANY_REQUESTS.getReasonPhrase(),
-                                HttpStatus.BAD_REQUEST
+                                HttpStatus.TOO_MANY_REQUESTS
                         );
                     }
                 });

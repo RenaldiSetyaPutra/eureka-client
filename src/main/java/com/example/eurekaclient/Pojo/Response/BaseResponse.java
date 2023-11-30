@@ -3,9 +3,11 @@ package com.example.eurekaclient.Pojo.Response;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.SneakyThrows;
 
 @JsonInclude(Include.NON_EMPTY)
 @Data
@@ -19,5 +21,11 @@ public class BaseResponse<T> {
     public BaseResponse(String responseCode, String responseMessage) {
         this.responseCode = responseCode;
         this.responseMessage = responseMessage;
+    }
+
+    @SneakyThrows
+    @Override
+    public String toString() {
+        return new ObjectMapper().writeValueAsString(this);
     }
 }

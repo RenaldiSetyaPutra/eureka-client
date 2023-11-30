@@ -40,6 +40,7 @@ public class NicepayContext {
     ) {
         this.inquirySNAPRequest = inquirySNAPRequest;
         this.codeService = codeService;
+        this.bind = bindingResult;
     }
     public NicepayContext(
             PaymentSNAPRequest paymentSNAPRequest,

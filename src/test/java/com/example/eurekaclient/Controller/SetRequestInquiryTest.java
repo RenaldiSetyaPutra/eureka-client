@@ -30,4 +30,28 @@ public class SetRequestInquiryTest {
         return request;
     }
 
+    static InquirySNAPRequest setRequestInquiryMandatoryPartnerServiceId(){
+        InquirySNAPRequest request = new InquirySNAPRequest();
+        Map<String,Object> additionalInfo = new HashMap<>();
+        additionalInfo.put("bankCd", "HNBN");
+        request.setPartnerServiceId("");
+        request.setCustomerNo("781315391070");
+        request.setVirtualAccountNo("9772020870717292");
+        request.setInquiryRequestId("41807553358950093184");
+        request.setAdditionalInfo(additionalInfo);
+        return request;
+    }
+
+    static InquirySNAPRequest setRequestInquiryFormatPartnerServiceId(){
+        InquirySNAPRequest request = new InquirySNAPRequest();
+        Map<String,Object> additionalInfo = new HashMap<>();
+        additionalInfo.put("bankCd", "HNBN");
+        request.setPartnerServiceId("977202081111111111111");
+        request.setCustomerNo("781315391070");
+        request.setVirtualAccountNo("9772020870717292");
+        request.setInquiryRequestId("41807553358950093184");
+        request.setAdditionalInfo(additionalInfo);
+        return request;
+    }
+
 }

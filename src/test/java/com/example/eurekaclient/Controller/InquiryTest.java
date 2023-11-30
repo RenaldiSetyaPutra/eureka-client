@@ -71,7 +71,7 @@ public class InquiryTest {
     @Test
     public void inquiryBadRequestInvalidMandatoryAddiitonalInfo() throws Exception {
         InquirySNAPRequest snapRequest = SetRequestInquiryTest.setRequestInquiryMandatoryAdditionalInfo();
-        ParentResponse snapResponse = SetResponseInquiryTest.buildParentResponseNegative();
+        ParentResponse snapResponse = SetResponseInquiryTest.buildParentResponseNegativeMandatoryBankCd();
 
         given(coreService.inquiry(any(), anyString(), any())).willReturn(snapResponse);
 
@@ -83,6 +83,41 @@ public class InquiryTest {
                 .andExpect(status().isBadRequest())
                 .andDo(mvcResult ->
                                 assertThat(snapRequest.getAdditionalInfo().isEmpty()).isTrue()
+                );
+    }
+    @Test
+    public void inquiryBadRequestInvalidMandatoryPartnerServiceId() throws Exception {
+        InquirySNAPRequest snapRequest = SetRequestInquiryTest.setRequestInquiryMandatoryPartnerServiceId();
+        ParentResponse snapResponse = SetResponseInquiryTest.buildParentResponseNegativeMandatoryPartnerServiceId();
+
+        given(coreService.inquiry(any(), anyString(), any())).willReturn(snapResponse);
+
+        mockMvc.perform(
+                        MockMvcRequestBuilders
+                                .post("/client/v1.0/transfer-va/inquiry")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(mapper.writeValueAsString(snapRequest)))
+                .andExpect(status().isBadRequest())
+                .andDo(mvcResult ->
+                                assertThat(snapRequest.getPartnerServiceId().isBlank()).isTrue()
+                );
+    }
+
+    @Test
+    public void inquiryBadRequestInvalidFormatPartnerServiceId() throws Exception {
+        InquirySNAPRequest snapRequest = SetRequestInquiryTest.setRequestInquiryFormatPartnerServiceId();
+        ParentResponse snapResponse = SetResponseInquiryTest.buildParentResponseNegativeFormatPartnerServiceId();
+
+        given(coreService.inquiry(any(), anyString(), any())).willReturn(snapResponse);
+
+        mockMvc.perform(
+                        MockMvcRequestBuilders
+                                .post("/client/v1.0/transfer-va/inquiry")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(mapper.writeValueAsString(snapRequest)))
+                .andExpect(status().isBadRequest())
+                .andDo(mvcResult ->
+                        assertThat(snapRequest.getPartnerServiceId().length() > 20).isTrue()
                 );
     }
 }

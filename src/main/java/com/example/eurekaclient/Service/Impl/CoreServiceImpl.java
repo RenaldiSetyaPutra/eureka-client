@@ -23,7 +23,7 @@ public class CoreServiceImpl implements CoreService{
             this.serviceCode = codeService;
 
             return helper.initInquiry(request, codeService, bind)
-            // .flatMap(nicepayComponent::checkHeader)
+             .flatMap(nicepayComponent::checkBind)
 //            .flatMap(nicepayComponent::valid)
             .flatMap(ctx -> nicepayComponent.fieldInquiryAdditionalToMandatory(ctx, "bankCd"))
             .flatMap(nicepayComponent::setResponseInquery)
